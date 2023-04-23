@@ -10,4 +10,4 @@ async def csv_to_pipe(file: UploadFile = File(...)):
         csv_reader = csv.reader((await file.read()).decode('utf-8-sig').splitlines())
         for row in csv_reader:
             pipe_file.write('|'.join(row) + '\n')
-    return {"status": "success"}
+    return {"status": "file conversion successfull"}
