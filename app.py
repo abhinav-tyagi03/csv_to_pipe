@@ -3,6 +3,7 @@ import csv
 import os
 app = FastAPI()
 
+
 @app.post("/csv-to-pipe")
 async def csv_to_pipe(file: UploadFile = File(...)):
     pipe_file_path = f"{(file.filename)[:-4]}_pipe_converted.txt"
@@ -13,6 +14,5 @@ async def csv_to_pipe(file: UploadFile = File(...)):
         x = (f"{os.getcwd()}\{pipe_file_path}").replace("\\", "/")
     return {"status": "file converted to pipe SUCCESSFULLY",
             "file_location": x
+
             }
-
-
